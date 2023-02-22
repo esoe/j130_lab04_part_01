@@ -5,5 +5,9 @@ package main.java.ru.molokoin;
 public class App {
     public static void main(String[] args) {
         System.out.println("Запущено приложение>> CONSUMER : SUPPLIER");
+        for(int i = 0; i < 10; i++) {
+            new Consumer();
+         }
+
     }
 }
