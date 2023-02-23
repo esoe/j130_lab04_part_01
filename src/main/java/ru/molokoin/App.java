@@ -10,8 +10,8 @@ import java.util.function.Supplier;
 public class App {
     //TODO константы хорошо бы брать из файла настроек или запрашивать у пользователя при запуске программы. Для удобства пока размещены тут
     public static final long DAY_LENGHT = 1000;//длительность суток
-    public static final int CONSUMERS_COUNT = 2; //количество потребителей, создаваемых программой
-    public static final int WAREHOUSES_COUNT = 1; //количество складов, создаваемых системой
+    public static final int CONSUMERS_COUNT = 10; //количество потребителей, создаваемых программой
+    public static final int WAREHOUSES_COUNT = 3; //количество складов, создаваемых системой
     public static final int SUPPLIERS_COUNT = 1; //количество поставщиков, создаваемых системой
     
     private static List<Consumer> consumers = new ArrayList<>();
