@@ -60,27 +60,18 @@ public class Warehouse extends Thread{
     }
     /**
      * Метод реализует запрос к поставщикам о поставке продукции на склад
-     * - 
+     * - вход (input) склада вызывает выход (output) поставщика
+     * - склад оповещает всех поставщиков об имеющейся потребности и ждет поставок
      * @return
+     * @throws InterruptedException
      */
-    public int input(){
-        return (max - current);
-
-        // //
-        // int needs = max - current;//потребность
-        // int fact = 0;//фактически поставлено
-        // //опрашиваем склады на предмет наличия необходимого количества продукции
-        // for (Warehouse warehouse : App.getWarehouses()) {
-        //     if (warehouse.check(needs)){
-        //         fact = warehouse.output(needs);
-        //         current = current + fact;
-        //         System.out.println(Thread.currentThread().getName() + " >>> Получил со склада продукцию: " + fact + " ...");
-        //         break;//в случае успеха, прерываем цикл
-        //     }else {
-        //         System.out.println(Thread.currentThread().getName() + " >>> " + "Получение продукции не удалось ...");
-        //     }
-        // }
-        // return (fact);
+    public int input() throws InterruptedException{
+        int sum = 0;
+        for (Producer producer : App.getProducers()) {
+            //не учли возможность переполнения склада
+            sum = sum + producer.output(max - current);
+        }
+        return sum;
     }
     /**
      * 
